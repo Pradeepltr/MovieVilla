@@ -54,3 +54,76 @@ form.addEventListener('submit',(e)=>{
   
     }
   })
+//   Create FavList empty array to add favorite movies
+  var favList=[];
+//   Function for handle display movie with details
+function Show(element){
+   console.log("hello");
+  // console.log(e);
+  card.innerHTML=' '
+ fav.innerHTML=`
+ <div class="container">
+ <div class="imgdiv"><img src="${IMG_URL+element.poster_path}" class="poster"></div>
+ <div class="detaildiv"> 
+ <table>
+ <tr>
+ <td><h4>Title : </h4></td> </tr>
+ <tr><td><h6>${element.title}</h6></td></tr>
+ <tr>
+ <td><h4>Release Date : </h4></td> </tr>
+ <tr><td><h6>${element.release_date}</h6></td></tr>
+ <tr>
+ <td><h4>Rating : </h4></td> </tr>
+ <tr><td><h6>${element.vote_average}</h6></td></tr>
+ <td><h4>Total Vote : </h4></td> </tr>
+ <tr><td><h6>${element.vote_count}</h6></td></tr>
+ <td><h4>Overview : </h4></td> </tr>
+ <tr><td><h6>${element.overview}</h6></td></tr>
+ 
+
+ </table>
+ 
+ </div>
+ </div>
+ `
+//  card.onclick=()=>{Favorite(element)}
+const  button=document.createElement('button');
+button.classList.add('favbtn')
+button.innerText=`Add To Favorite`
+fav.append(button);
+button.onclick=()=>{Favorite(element)}
+releted_movie.innerText="Related Movies";
+getdata(API_URL );
+ 
+}
+// Function for add movie in favorite list
+function Favorite(e){
+  console.log(e.title)
+  favList.push(e);
+}
+// Function for handle Favorite page on click navbar favorite button
+function FavoriteHandle(){
+  fav.innerHTML=' ';
+  console.log("welcome");
+  // console.log(favList);
+  releted_movie.innerText=" ";
+  if(favList.length===0){
+    
+    card.innerHTML=`
+    <div class="Msg">
+      <h1>Favorite List is Empty Click below button to go to home and add movie in Favorite list</h1>
+      <h3><button class="btnHome" onclick="HomeHandle()">Home</button></h3>
+      </div>
+    `
+   
+    
+  }else{
+  showdata(favList);
+  }
+}
+// Function for Handle home button as well as Movievilla (page heading) click that present on navbar
+function HomeHandle(){
+  favriote.innerHTML=" ";
+  releted_movie.innerText=" ";
+  getdata(API_URL );
+}
