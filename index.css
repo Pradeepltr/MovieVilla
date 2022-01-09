@@ -12,6 +12,8 @@ body{
     display: flex;
     width: fit-content;
     flex-wrap: wrap;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 .nav_colour{
     background-color:gainsboro
@@ -56,22 +58,27 @@ body{
     margin-left: 2rem;
     width: 80%;
 }
-/*.poster{
+.poster{
     height:100%;
     width:90%;
 }
 .favriote{
    text-align: center;
     background-color: azure; 
-}*/
+}
 /* Styles for h4 tag */
 h4{
     color:red;
 }
 /* Styles for add to favorite button */
 .favbtn{
-    margin-top: 2rem;
+    margin-top: 25rem;
+    margin-left: -10rem;
+    margin-bottom: 5rem;
     background-color:azure;
+    height: fit-content;
+    width: fit-content;
+   display: inline-block;
 }
 /* Styles for releted movie text that display after add to favorite button */
 .releted_movie{
@@ -81,6 +88,7 @@ h4{
     margin-top: 2rem;
     font-weight: bold;
 }
+
 /* Apply css for responsive all screen size */
 @media only screen and (max-width: 650px) {
     .container{
