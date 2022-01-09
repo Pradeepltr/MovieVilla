@@ -10,7 +10,7 @@ body{
 }
 .display_card{
     display: flex;
-    width: fit-content;
+    width:100%;
     flex-wrap: wrap;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -73,7 +73,7 @@ h4{
 /* Styles for add to favorite button */
 .favbtn{
     margin-top: 25rem;
-    margin-left: -10rem;
+    margin-left: -10.5rem;
     margin-bottom: 5rem;
     background-color:azure;
     height: fit-content;
@@ -88,7 +88,16 @@ h4{
     margin-top: 2rem;
     font-weight: bold;
 }
-
+@media only screen and (max-width: 817px) {
+    .card{
+        margin-left: 1rem;
+        margin-right:1rem;
+    }
+    .display_card{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+  }
 /* Apply css for responsive all screen size */
 @media only screen and (max-width: 650px) {
     .container{

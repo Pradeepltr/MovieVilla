@@ -46,7 +46,7 @@ function showdata(data) {
     movieE.onclick = () => { Show(element) }
     const button = document.createElement('button');
     button.classList.add('favbtn')
-    button.innerText = `Add To Favorite`
+    button.innerText = `Add To Favorite...`
     card.appendChild(button);
     button.onclick = () => { Favorite(element) }
   });
@@ -108,11 +108,6 @@ function Show(element) {
  </div>
  `
   //  card.onclick=()=>{Favorite(element)}
-  const button = document.createElement('button');
-  button.classList.add('favbtn')
-  button.innerText = `Add To Favorite`
-  fav.append(button);
-  button.onclick = () => { Favorite(element) }
   releted_movie.innerText = "Related Movies";
   getdata(API_URL);
 
