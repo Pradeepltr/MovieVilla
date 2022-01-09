@@ -1,0 +1,123 @@
+/* Set styles for whole body */
+body{
+    margin: 0%;
+    padding: 0%;
+    background-image: linear-gradient(to right, red , yellow);
+} 
+
+.movie{
+    margin-left: 5%;
+}
+.display_card{
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap;
+}
+.nav_colour{
+    background-color:gainsboro
+}
+/* Styles for card items */
+.card{
+    margin-top: 5%;
+    margin-bottom: 4%;
+    height: 20%;
+}
+/* Styles for display message that display when favorite list empty */
+.Msg{
+    /* background-color: aqua; */
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+/* Styles for home button that present on favorite page */
+.btnHome{
+    background-color: burlywood;
+    text-align: center;
+    margin-top: 2%;
+}
+/* Styles for display container who contains movie with details */
+.container{
+    margin-left: 20%;
+    background-color: bisque;
+    width:60%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20%;
+}
+/* containe child Styles */
+.imgdiv{
+    text-align: left;
+    margin-left: -2rem;
+    width: 50%;
+}
+.detaildiv{
+    margin-left: 2rem;
+    width: 80%;
+}
+/*.poster{
+    height:100%;
+    width:90%;
+}
+.favriote{
+   text-align: center;
+    background-color: azure; 
+}*/
+/* Styles for h4 tag */
+h4{
+    color:red;
+}
+/* Styles for add to favorite button */
+.favbtn{
+    margin-top: 2rem;
+    background-color:azure;
+}
+/* Styles for releted movie text that display after add to favorite button */
+.releted_movie{
+    font-size: 30px;
+    color:darkgoldenrod;
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+/* Apply css for responsive all screen size */
+@media only screen and (max-width: 650px) {
+    .container{
+        width: 100%;
+       margin-left: 8%;
+        flex-wrap: wrap;
+        margin-right: 0%;
+    }
+    .imgdiv{
+      width: 100%;
+      margin-left: 2rem;
+  }
+  .detaildiv{
+      width: 100%;
+  }
+    
+}
+@media only screen and (max-width: 590px) {
+    .container{
+        width: 100%;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+       
+        
+    }
+    .imgdiv{
+        width: 100%;
+        margin-left: 2rem;
+    }
+    .detaildiv{
+        width: 100%;
+    }
+  }
+  
+ 
+  
+
+
