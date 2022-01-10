@@ -28,10 +28,12 @@ body{
 .Msg{
     /* background-color: aqua; */
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
+     margin-left: 10%;
+     margin-right: 10%; 
     margin-top: 5%;
+    /* background-color:lightblue; */
 }
+
 /* Styles for home button that present on favorite page */
 .btnHome{
     background-color: burlywood;
@@ -64,7 +66,7 @@ body{
 }
 .favriote{
    text-align: center;
-    background-color: azure; 
+   
 }
 /* Styles for h4 tag */
 h4{

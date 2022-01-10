@@ -22,7 +22,17 @@ getdata(API_URL);
 function showdata(data) {
   console.log("Home")
   card.innerHTML = '';
-  console.log(data);
+  // console.log(data);
+  if(data.length===0){
+    favriote.innerHTML = `
+    <div class="Msg">
+      <h1>No Match found </h1>
+      </div>
+    `
+    releted_movie.innerText = "Related Movies";
+    getdata(API_URL);
+  }
+  else{
   data.forEach(element => {
     console.log(element)
     const movieE = document.createElement('div')
@@ -40,30 +50,35 @@ function showdata(data) {
   </div>
 </div>
         `
-
+   
 
     card.appendChild(movieE)
     movieE.onclick = () => { Show(element) }
     const button = document.createElement('button');
     button.classList.add('favbtn')
-    button.innerText = `Add To Favorite...`
+    button.innerText=`Add To Favorite...`
     card.appendChild(button);
-    button.onclick = () => { Favorite(element) }
+    button.onclick = () => { 
+      Favorite(element)
+    }
   });
+}
 }
 // Function for handle searching part
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const searchValue = search.value;
+ 
   if (searchValue) {
     favriote.innerHTML = " ";
     releted_movie.innerText = " ";
 
     getdata(SearchUrl + '&query=' + searchValue);
-
+    form.reset();
 
   }
 })
+// Function for handle search event on every key press
 function OnInput(){
   const searchValue = search.value;
   if (searchValue) {
@@ -75,7 +90,7 @@ function OnInput(){
 
   }
 }
-//   Create FavList empty array to add favorite movies
+
 
 //   Function for handle display movie with details
 function Show(element) {
@@ -116,24 +131,29 @@ function Show(element) {
 function Favorite(e) {
   // console.log(e.title)
   // favList.push(e);
- 
+  var item=JSON.parse(localStorage.getItem(e.title));
+  
   localStorage.setItem(e.title, JSON.stringify(e));
-  id++;
+  alert("Added to your Fav List")
+
+  
+  
+  
 
 }
 // Function for handle Favorite page on click navbar favorite button
 function FavoriteHandle() {
-  fav.innerHTML = ' ';
   console.log("welcome");
   // console.log(favList);
   releted_movie.innerText = " ";
+  //   Create FavList empty array to add favorite movies
   var favList = [];
   // var item=JSON.parse(localStorage.getItem("favList"));
   for (var i = 0; i < localStorage.length; i++) {
     var item = localStorage.getItem(localStorage.key(i));
     favList.push(JSON.parse(item));
   }
-
+  favriote.innerHTML=` `
   if (favList.length === 0) {
 
     card.innerHTML = `
@@ -180,12 +200,13 @@ function showFavdata(data){
     movieE.onclick = () => { Show(element) }
     const button = document.createElement('button');
     button.classList.add('favbtn')
-    button.innerText = `Remove To Favorite`
+    button.innerText = `Remove from Favorite`
     card.appendChild(button);
     button.onclick = () => { RemoveFavItem(element) }
   });
 
 }
+// Function for Handle remove element from Favorite list
 function RemoveFavItem(e){
   localStorage.removeItem(e.title);
   FavoriteHandle()
