@@ -23,7 +23,7 @@ function showdata(data) {
   console.log("Home")
   card.innerHTML = '';
   // console.log(data);
-  if(data.length===0){
+  if (data.length === 0) {
     favriote.innerHTML = `
     <div class="Msg">
       <h1>No Match found </h1>
@@ -32,14 +32,14 @@ function showdata(data) {
     releted_movie.innerText = "Related Movies";
     getdata(API_URL);
   }
-  else{
-  data.forEach(element => {
-    console.log(element)
-    const movieE = document.createElement('div')
-    movieE.classList.add('movie')
-    movieE.innerHTML = `
+  else {
+    data.forEach(element => {
+      console.log(element)
+      const movieE = document.createElement('div')
+      movieE.classList.add('movie')
+      movieE.innerHTML = `
         <div class="card" style="width: 10rem;">
-       <a href="#" target="blank"><img src="${IMG_URL + element.poster_path}" class="card-img-top" alt="..."></a>
+       <a href="#"><img src="${IMG_URL + element.poster_path}" class="card-img-top" alt="..."></a>
   <div class="card-body">
     <h5 class="card-title">${element.title}</h5>
    
@@ -50,25 +50,25 @@ function showdata(data) {
   </div>
 </div>
         `
-   
 
-    card.appendChild(movieE)
-    movieE.onclick = () => { Show(element) }
-    const button = document.createElement('button');
-    button.classList.add('favbtn')
-    button.innerText=`Add To Favorite...`
-    card.appendChild(button);
-    button.onclick = () => { 
-      Favorite(element)
-    }
-  });
-}
+
+      card.appendChild(movieE)
+      movieE.onclick = () => { Show(element) }
+      const button = document.createElement('button');
+      button.classList.add('favbtn')
+      button.innerText = `Add To Favorite...`
+      card.appendChild(button);
+      button.onclick = () => {
+        Favorite(element)
+      }
+    });
+  }
 }
 // Function for handle searching part
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const searchValue = search.value;
- 
+
   if (searchValue) {
     favriote.innerHTML = " ";
     releted_movie.innerText = " ";
@@ -79,7 +79,7 @@ form.addEventListener('submit', (e) => {
   }
 })
 // Function for handle search event on every key press
-function OnInput(){
+function OnInput() {
   const searchValue = search.value;
   if (searchValue) {
     favriote.innerHTML = " ";
@@ -131,14 +131,14 @@ function Show(element) {
 function Favorite(e) {
   // console.log(e.title)
   // favList.push(e);
-  var item=JSON.parse(localStorage.getItem(e.title));
-  
+ 
+
   localStorage.setItem(e.title, JSON.stringify(e));
   alert("Added to your Fav List")
 
-  
-  
-  
+
+
+
 
 }
 // Function for handle Favorite page on click navbar favorite button
@@ -153,7 +153,7 @@ function FavoriteHandle() {
     var item = localStorage.getItem(localStorage.key(i));
     favList.push(JSON.parse(item));
   }
-  favriote.innerHTML=` `
+  favriote.innerHTML = ` `
   if (favList.length === 0) {
 
     card.innerHTML = `
@@ -174,7 +174,7 @@ function HomeHandle() {
   releted_movie.innerText = " ";
   getdata(API_URL);
 }
-function showFavdata(data){
+function showFavdata(data) {
   card.innerHTML = '';
   console.log(data);
   data.forEach(element => {
@@ -183,7 +183,7 @@ function showFavdata(data){
     movieE.classList.add('movie')
     movieE.innerHTML = `
         <div class="card" style="width: 10rem;">
-       <a href="#" target="blank"><img src="${IMG_URL + element.poster_path}" class="card-img-top" alt="..."></a>
+       <a href="#"><img src="${IMG_URL + element.poster_path}" class="card-img-top" alt="..."></a>
   <div class="card-body">
     <h5 class="card-title">${element.title}</h5>
    
@@ -207,7 +207,7 @@ function showFavdata(data){
 
 }
 // Function for Handle remove element from Favorite list
-function RemoveFavItem(e){
+function RemoveFavItem(e) {
   localStorage.removeItem(e.title);
   FavoriteHandle()
 }
